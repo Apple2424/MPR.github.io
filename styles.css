@@ -29,7 +29,7 @@ h1 {
 
 .fade-out {
     opacity: 0;
-    animation: fadeOut 1s ease-in-out forwards;
+    animation: fadeOut 3s ease-in-out forwards;
 }
 
 @keyframes fadeOut {
