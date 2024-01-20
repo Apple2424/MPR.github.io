@@ -1,8 +1,11 @@
-function fadeInComplete() {
-    // This function is called when the fade-in animation is complete.
-    // You can add additional actions here, such as fading out and navigating to a new page.
-    fadeOutAndNavigate();
-}
+document.addEventListener('DOMContentLoaded', function() {
+    // This event is fired when the DOM is fully loaded.
+
+    // Wait for 1 second and then initiate the fade-out animation.
+    setTimeout(() => {
+        fadeOutAndNavigate();
+    }, 1000);
+});
 
 function fadeOutAndNavigate() {
     // Get the element to fade out (in this case, the div with class "fade-in").
