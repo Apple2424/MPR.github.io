@@ -5,8 +5,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom, #3498db, #000); /* Gradient from blue to black */
-    color: #fff; /* Text color for better contrast */
+    background: linear-gradient(to bottom, #3498db, #000);
+    color: #fff;
 }
 
 .fade-in {
