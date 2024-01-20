@@ -1,3 +1,9 @@
+function fadeInComplete() {
+    // This function is called when the fade-in animation is complete.
+    // You can add additional actions here, such as fading out and navigating to a new page.
+    fadeOutAndNavigate();
+}
+
 function fadeOutAndNavigate() {
     // Get the element to fade out (in this case, the div with class "fade-in").
     const fadeElement = document.querySelector('.fade-in');
