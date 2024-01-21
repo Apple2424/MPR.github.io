@@ -37,10 +37,10 @@ body {
 
 @keyframes moveLeft {
     from {
-        left: 0; /* Start from the left edge */
+        transform: translateX(0); /* Start from the left edge */
     }
     to {
-        left: calc(100vw - 100%); /* Move to the right edge */
+        transform: translateX(calc(-100% * 6)); /* Move to the left edge (adjust the multiplier based on the number of boxes) */
     }
 }
 
