@@ -20,16 +20,31 @@
         h1 {
             text-align: center;
         }
-        
-        /* Additional styles as needed for play.html */
+
+        /* Styling for the unique button */
+        .unique-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #27ae60; /* Green color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .unique-button:hover {
+            background-color: #219653; /* Darker green on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow on hover */
+        }
     </style>
 </head>
-</html>
 <body>
 
     <h1>This is the Play Page</h1>
 
-    <button onclick="navigateToRoulette()">Go to Roulette</button>
+    <!-- Unique button with hover effect -->
+    <button class="unique-button" onclick="navigateToRoulette()">Go to Roulette</button>
 
     <script src="script.js"></script>
 
