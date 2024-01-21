@@ -15,17 +15,8 @@
         <!-- Loop to generate image boxes -->
         <?php for ($i = 0; $i <= 36; $i++) { ?>
             <?php
-                // Set default image for even numbers
-                $imageName = ($i % 2 == 0) ? 'default.png' : '';
-
-                // Use specific images for numbers 1, 2, and 3
-                if ($i == 1) {
-                    $imageName = '1.png';
-                } elseif ($i == 2) {
-                    $imageName = '2.png';
-                } elseif ($i == 3) {
-                    $imageName = '3.png';
-                }
+                // Use images 1.png, 2.png, and 3.png for numbers 1, 2, and 3
+                $imageName = in_array($i, [1, 2, 3]) ? "$i.png" : "";
             ?>
             <img src="<?php echo $imageName; ?>" alt="<?php echo $i; ?>" class="number-box">
         <?php } ?>
