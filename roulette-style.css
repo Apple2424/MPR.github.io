@@ -18,6 +18,12 @@ body {
     overflow-x: hidden; /* Hide overflowing content (images) */
 }
 
+.rounded-box-container {
+    display: flex;
+    flex-direction: row; /* Display boxes horizontally */
+    animation: moveLeft var(--animation-duration) linear infinite; /* Animation to move boxes left */
+}
+
 .rounded-box {
     --animation-duration: 5s; /* Set the default animation duration */
     width: 100vw; /* Stretch each box to fill the viewport width */
