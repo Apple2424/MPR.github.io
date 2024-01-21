@@ -15,6 +15,8 @@
             margin: 0;
             background: linear-gradient(to bottom, #3498db, #000);
             color: #fff;
+            opacity: 0; /* Initial opacity set to 0 for the fade-in effect */
+            animation: fadeIn 3s ease-in-out forwards; /* Apply fade-in animation */
         }
 
         h1 {
@@ -32,16 +34,21 @@
             cursor: pointer;
             transition: background-color 0.3s, box-shadow 0.3s;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Initial box shadow for a subtle lift */
-
-            /* Positioning properties */
-            position: absolute;
-            top: 50px; /* Adjust top position */
-            left: 50px; /* Adjust left position */
         }
 
         .unique-button:hover {
             background-color: #219653; /* Darker green on hover */
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Increased box shadow on hover for a floating effect */
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
