@@ -35,9 +35,9 @@ body {
 
 @keyframes moveLeft {
     from {
-        left: 100%; /* Start position (fully to the right) */
+        width: 0; /* Start with no width */
     }
     to {
-        left: -100%; /* End position (fully to the left) */
+        width: 100%; /* End with full width */
     }
 }
