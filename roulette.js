@@ -5,6 +5,13 @@ const rewards = [
     'Jackpot',
     '$10,000',
     '$100,000',
+    'Free Spin',
+    '$500',
+    'Mystery Prize',
+    'Double Your Bet',
+    '$50,000',
+    'Lose a Turn',
+    '$1,000,000'
     // Add more rewards as needed
 ];
 
