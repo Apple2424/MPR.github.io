@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MPR Cooperation - Roulette</title>
+</head>
+<body>
+
+    <h1>This is the Roulette Page</h1>
+
+    <!-- Line of image boxes -->
+    <div class="number-line">
+        <!-- Loop to generate image boxes -->
+        <?php for ($i = 0; $i <= 36; $i++) { ?>
+            <?php
+                // Set default image for even numbers
+                $imageName = ($i % 2 == 0) ? 'default.png' : '';
+
+                // Use specific images for numbers 1, 2, and 3
+                if ($i == 1) {
+                    $imageName = '1.png';
+                } elseif ($i == 2) {
+                    $imageName = '2.png';
+                } elseif ($i == 3) {
+                    $imageName = '3.png';
+                }
+            ?>
+            <img src="<?php echo $imageName; ?>" alt="<?php echo $i; ?>" class="number-box">
+        <?php } ?>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
