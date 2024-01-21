@@ -25,19 +25,13 @@ h1 {
     overflow-x: hidden; /* Hide overflowing content (images) */
 }
 
-.background-box {
-    background-color: #ccc; /* Grey background color */
-    border-radius: 15px;
-    overflow: hidden;
-    margin-right: 10px; /* Spacing between images */
-    animation: moveLeft 5s linear infinite; /* Animation to move boxes left */
-}
-
 .rounded-box {
     width: 80px;
     height: 100px;
     overflow: hidden;
     margin-right: 10px; /* Spacing between images */
+    position: relative;
+    animation: moveLeft 5s linear infinite; /* Animation to move boxes left */
 }
 
 .rounded-box img {
@@ -48,9 +42,9 @@ h1 {
 
 @keyframes moveLeft {
     from {
-        transform: translateX(100%); /* Start position (fully to the right) */
+        left: 100%; /* Start position (fully to the right) */
     }
     to {
-        transform: translateX(-100%); /* End position (fully to the left) */
+        left: -100%; /* End position (fully to the left) */
     }
 }
