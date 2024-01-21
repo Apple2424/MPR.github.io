@@ -42,7 +42,8 @@ function displayReward(rotation) {
     // Get the reward from the array
     const reward = rewards[rewardIndex];
 
-    alert(`Congratulations! You won: ${reward}`);
+    // Update the content on the page with the reward
+    document.getElementById('reward-display').textContent = `Congratulations! You won: ${reward}`;
 }
 
 // Function to initialize the wheel with lines and reward labels
