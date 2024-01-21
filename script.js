@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Wait for 1 second and then initiate the fade-out animation.
     setTimeout(() => {
         fadeOutAndNavigate();
-    }, 1000);
+    }, 3000);
 });
 
 function fadeOutAndNavigate() {
