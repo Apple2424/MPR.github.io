@@ -13,12 +13,8 @@
     <!-- Line of image boxes -->
     <div class="number-line">
         <!-- Loop to generate image boxes -->
-        <?php for ($i = 0; $i <= 36; $i++) { ?>
-            <?php
-                // Use images 1.png, 2.png, and 3.png for numbers 1, 2, and 3
-                $imageName = in_array($i, [1, 2, 3]) ? "$i.png" : "";
-            ?>
-            <img src="<?php echo $imageName; ?>" alt="<?php echo $i; ?>" class="number-box">
+        <?php for ($i = 1; $i <= 3; $i++) { ?>
+            <img src="<?php echo "$i.png"; ?>" alt="<?php echo $i; ?>" class="number-box">
         <?php } ?>
     </div>
 
