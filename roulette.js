@@ -33,11 +33,39 @@ function displayReward(rotation) {
     // Calculate the normalized rotation
     const normalizedRotation = (rotation % 360 + 360) % 360;
 
+    // Calculate the angle between rewards
+    const angleBetweenRewards = 360 / rewards.length;
+
     // Calculate the reward index based on the normalized rotation
-    const rewardIndex = Math.floor((normalizedRotation / 360) * rewards.length);
+    const rewardIndex = Math.floor(normalizedRotation / angleBetweenRewards);
 
     // Get the reward from the array
     const reward = rewards[rewardIndex];
 
     alert(`Congratulations! You won: ${reward}`);
 }
+
+// Function to initialize the wheel with lines and reward labels
+function initializeWheel() {
+    const wheel = document.getElementById('wheel');
+
+    // Calculate the angle between rewards
+    const angleBetweenRewards = 360 / rewards.length;
+
+    // Loop through rewards array to create lines and labels
+    rewards.forEach((reward, index) => {
+        const line = document.createElement('div');
+        line.className = 'line';
+        line.style.transform = `rotate(${index * angleBetweenRewards}deg)`;
+        wheel.appendChild(line);
+
+        const label = document.createElement('div');
+        label.className = 'reward-label';
+        label.textContent = reward;
+        label.style.transform = `rotate(${(index + 0.5) * angleBetweenRewards}deg)`;
+        wheel.appendChild(label);
+    });
+}
+
+// Initialize the wheel when the page loads
+initializeWheel();
