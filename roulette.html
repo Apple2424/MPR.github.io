@@ -28,7 +28,27 @@
             background-color: #3498db;
             position: absolute;
             transform-origin: center center;
-            transition: transform 3s ease-in-out;
+            transition: transform 3s ease-out;
+        }
+
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 80px;
+            background-color: #fff;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            transform-origin: 50% 100%;
+        }
+
+        .reward-label {
+            position: absolute;
+            font-size: 12px;
+            color: #fff;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         #spin-btn {
@@ -46,7 +66,26 @@
 <body>
 
     <div id="wheel-container">
-        <div id="wheel"></div>
+        <div id="wheel">
+            <!-- Lines and labels for each reward -->
+            <div class="line" style="transform: rotate(0deg);"></div>
+            <div class="reward-label" style="transform: rotate(0deg);">Jackpot</div>
+
+            <div class="line" style="transform: rotate(60deg);"></div>
+            <div class="reward-label" style="transform: rotate(60deg);">$10,000</div>
+
+            <div class="line" style="transform: rotate(120deg);"></div>
+            <div class="reward-label" style="transform: rotate(120deg);">$100</div>
+
+            <div class="line" style="transform: rotate(180deg);"></div>
+            <div class="reward-label" style="transform: rotate(180deg);">$50</div>
+
+            <div class="line" style="transform: rotate(240deg);"></div>
+            <div class="reward-label" style="transform: rotate(240deg);">$500</div>
+
+            <div class="line" style="transform: rotate(300deg);"></div>
+            <div class="reward-label" style="transform: rotate(300deg);">Try Again</div>
+        </div>
     </div>
 
     <button id="spin-btn" onclick="spinWheel()">Spin the Wheel</button>
