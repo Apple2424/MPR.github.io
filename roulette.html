@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"> <!-- Link to the same stylesheet used in index.html -->
-    <title>MPR Cooperation - Roulette</title>
+    <link rel="stylesheet" href="style.css">
+    <title>MPR Cooperation</title>
 </head>
 <body>
 
-    <h1>This is the Roulette Page</h1>
+    <h1>Welcome to MPR Cooperation</h1>
 
-    <!-- Line of image boxes -->
-    <div class="number-line">
-        <!-- Loop to generate image boxes -->
-        <?php for ($i = 1; $i <= 3; $i++) { ?>
-            <img src="<?php echo "$i.png"; ?>" class="number-box">
-        <?php } ?>
+    <!-- Line of rounded-rectangle boxes -->
+    <div class="image-line">
+        <div class="rounded-box">
+            <img src="1.png" alt="1">
+        </div>
+        <div class="rounded-box">
+            <img src="2.png" alt="2">
+        </div>
+        <div class="rounded-box">
+            <img src="3.png" alt="3">
+        </div>
     </div>
 
     <script src="script.js"></script>
