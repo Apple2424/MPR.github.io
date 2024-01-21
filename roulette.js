@@ -46,36 +46,18 @@ function displayReward(rotation) {
     document.getElementById('reward-display').textContent = `Congratulations! You won: ${reward}`;
 }
 
-// Function to initialize the wheel with lines and reward labels
+// Function to initialize the wheel with a single long line
 function initializeWheel() {
     const wheel = document.getElementById('wheel');
-    const rewardDisplay = document.getElementById('reward-display');
 
     // Clear the existing content in the wheel
     wheel.innerHTML = '';
 
-    // Calculate the angle between rewards
-    const angleBetweenRewards = 360 / rewards.length;
-
-    // Loop through rewards array to create lines and labels
-    rewards.forEach((reward, index) => {
-        const line = document.createElement('div');
-        line.className = 'line';
-        const lineRotation = index * angleBetweenRewards;
-        line.style.transform = `rotate(${lineRotation}deg)`;
-        wheel.appendChild(line);
-
-        const label = document.createElement('div');
-        label.className = 'reward-label';
-        const labelRotation = (index + 0.5) * angleBetweenRewards;
-        label.textContent = reward;
-        label.style.transform = `rotate(${labelRotation}deg)`;
-        wheel.appendChild(label);
-    });
-
-    // Display the reward on the page in the middle of the wheel
-    const rewardDisplayRotation = 90 + (angleBetweenRewards * rewards.length) / 2;
-    rewardDisplay.style.transform = `rotate(${rewardDisplayRotation}deg)`;
+    // Create a single long line covering the circle
+    const line = document.createElement('div');
+    line.className = 'line';
+    line.style.transform = `rotate(0deg)`;
+    wheel.appendChild(line);
 }
 
 // Initialize the wheel when the page loads
