@@ -23,19 +23,21 @@
         /* Styling for the roulette wheel container */
         .roulette-container {
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
         }
 
         /* Styling for the roulette wheel */
         .roulette-wheel {
             width: 100%;
             height: 100%;
-            background-color: #f00; /* Placeholder color */
+            background-color: #333; /* Dark color for the wheel */
             border-radius: 50%;
             cursor: pointer;
             transition: transform 3s ease-in-out;
             position: relative;
+            overflow: hidden;
+            border: 2px solid #fff; /* Border for the wheel */
         }
 
         /* Styling for rewards on the wheel */
@@ -45,12 +47,18 @@
             height: 20px;
             background-color: #fff;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #333; /* Dark color for the text */
+            font-weight: bold;
         }
 
-        .reward-1 { top: 10%; left: 45%; } /* Adjust position as needed */
-        .reward-2 { top: 45%; left: 80%; } /* Adjust position as needed */
-        .reward-3 { top: 80%; left: 45%; } /* Adjust position as needed */
-        /* Add more rewards and adjust positions as needed */
+        .reward-1 { top: 5%; left: 50%; } /* Adjust position as needed */
+        .reward-2 { top: 50%; left: 85%; } /* Adjust position as needed */
+        .reward-3 { top: 95%; left: 50%; } /* Adjust position as needed */
+        /* Add more rewards as needed */
 
         /* Styling for the pointer and lines */
         .pointer {
@@ -72,6 +80,19 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
+        /* Styling for the triangle on top of the wheel */
+        .triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #fff;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
@@ -83,14 +104,17 @@
         <!-- Roulette wheel with spin on click -->
         <div class="roulette-wheel">
             <!-- Rewards on the wheel -->
-            <div class="reward reward-1"></div>
-            <div class="reward reward-2"></div>
-            <div class="reward reward-3"></div>
+            <div class="reward reward-1">Jackpot</div>
+            <div class="reward reward-2">$10,000</div>
+            <div class="reward reward-3">$50,000</div>
             <!-- Add more rewards as needed -->
 
             <!-- Pointer and lines -->
             <div class="pointer"></div>
             <div class="line"></div>
+
+            <!-- Triangle on top of the wheel -->
+            <div class="triangle"></div>
         </div>
     </div>
 
