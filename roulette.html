@@ -20,23 +20,53 @@
             text-align: center;
         }
 
+        /* Styling for the roulette wheel container */
+        .roulette-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
         /* Styling for the roulette wheel */
         .roulette-wheel {
-            width: 200px;
-            height: 200px;
+            width: 100%;
+            height: 100%;
             background-color: #f00; /* Placeholder color */
             border-radius: 50%;
             cursor: pointer;
             transition: transform 3s ease-in-out;
         }
+
+        /* Styling for rewards on the wheel */
+        .reward {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        .reward-1 { top: 10%; left: 45%; } /* Adjust position as needed */
+        .reward-2 { top: 45%; left: 80%; } /* Adjust position as needed */
+        .reward-3 { top: 80%; left: 45%; } /* Adjust position as needed */
+        /* Add more rewards and adjust positions as needed */
     </style>
 </head>
 <body>
 
     <h1>This is the Roulette Page</h1>
 
-    <!-- Roulette wheel with spin on click -->
-    <div class="roulette-wheel" onclick="spinRoulette()"></div>
+    <!-- Roulette wheel container -->
+    <div class="roulette-container">
+        <!-- Roulette wheel with spin on click -->
+        <div class="roulette-wheel" onclick="spinRoulette()"></div>
+
+        <!-- Rewards on the wheel -->
+        <div class="reward reward-1"></div>
+        <div class="reward reward-2"></div>
+        <div class="reward reward-3"></div>
+        <!-- Add more rewards as needed -->
+    </div>
 
     <script src="script.js"></script>
 
