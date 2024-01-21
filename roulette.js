@@ -67,27 +67,31 @@ function initializeWheel() {
     // Calculate the angle between rewards
     const angleBetweenRewards = 360 / rewards.length;
 
+    // Calculate the angle for the center of the circle
+    const centerAngle = (angleBetweenRewards * rewardsToDisplay.length) / 2;
+
     // Loop through the specified rewards to create lines and labels
     rewardsToDisplay.forEach((reward, index) => {
         const line = document.createElement('div');
         line.className = 'line';
-        const lineRotation = index * angleBetweenRewards;
+        const lineRotation = (index * angleBetweenRewards) - centerAngle;
         line.style.transform = `rotate(${lineRotation}deg)`;
         wheel.appendChild(line);
 
         const label = document.createElement('div');
         label.className = 'reward-label';
-        const labelRotation = (index + 0.5) * angleBetweenRewards;
+        const labelRotation = ((index + 0.5) * angleBetweenRewards) - centerAngle;
         label.textContent = reward;
         label.style.transform = `rotate(${labelRotation}deg)`;
         wheel.appendChild(label);
     });
 
     // Display the rewards on the page in the middle of the wheel
-    const rewardDisplayRotation = 90 + (angleBetweenRewards * rewardsToDisplay.length) / 2;
+    const rewardDisplayRotation = 90;
     rewardDisplay.style.transform = `rotate(${rewardDisplayRotation}deg)`;
 }
 
 // Initialize the wheel when the page loads
 initializeWheel();
+
 
