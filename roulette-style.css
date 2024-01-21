@@ -36,8 +36,10 @@ body {
 @keyframes moveLeft {
     from {
         width: 0; /* Start with no width */
+        left: 0; /* Start from the left edge */
     }
     to {
         width: 100%; /* End with full width */
+        left: 0; /* Stay at the left edge */
     }
 }
