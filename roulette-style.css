@@ -30,9 +30,9 @@ body {
 }
 
 .rounded-box img {
-    width: auto; /* Maintain original image width */
+    width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Maintain aspect ratio and fit within the box */
 }
 
 @keyframes moveLeft {
