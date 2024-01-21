@@ -10,6 +10,11 @@ body {
     color: #fff;
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     text-align: center;
     margin-bottom: 20px;
