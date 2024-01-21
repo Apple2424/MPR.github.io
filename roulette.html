@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPR Cooperation - Roulette</title>
+    <title>Roulette Wheel</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,197 +12,46 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to bottom, #3498db, #000);
-            color: #fff;
+            background-color: #f0f0f0;
         }
 
-        h1 {
-            text-align: center;
-        }
-
-        /* Styling for the roulette wheel container */
-        .roulette-container {
+        #wheel-container {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
         }
 
-        /* Styling for the roulette wheel */
-        .roulette-wheel {
+        #wheel {
             width: 100%;
             height: 100%;
-            background-color: #333; /* Dark color for the wheel */
             border-radius: 50%;
-            cursor: pointer;
+            background-color: #3498db;
+            position: absolute;
+            transform-origin: center center;
             transition: transform 3s ease-in-out;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #fff; /* Border for the wheel */
         }
 
-        /* Styling for rewards on the wheel */
-        .reward {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #333; /* Dark color for the text */
-            font-weight: bold;
-        }
-
-        .reward-1 { top: 5%; left: 50%; } /* Adjust position as needed */
-        .reward-2 { top: 50%; left: 85%; } /* Adjust position as needed */
-        .reward-3 { top: 95%; left: 50%; } /* Adjust position as needed */
-        /* Add more rewards as needed */
-
-        /* Styling for the pointer and lines */
-        .pointer {
-            position: absolute;
-            width: 4px;
-            height: 30px;
-            background-color: #fff;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(0deg); /* Initialize rotation to 0deg */
-        }
-
-        .line {
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            background-color: #fff;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Styling for the triangle on top of the wheel */
-        .triangle {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 20px solid #fff;
-            top: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Styling for the popup */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: #fff; /* Solid white background */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            color: #4A9179; /* Color in hex form */
-        }
-
-        /* Styling for the close button in the popup */
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        #spin-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            color: #4A9179; /* Color in hex form */
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>This is the Roulette Page</h1>
-
-    <!-- Roulette wheel container -->
-    <div class="roulette-container" onclick="spinRoulette()">
-        <!-- Roulette wheel with spin on click -->
-        <div class="roulette-wheel" id="rouletteWheel">
-            <!-- Rewards on the wheel -->
-            <div class="reward reward-1" data-reward="Jackpot">J</div>
-            <div class="reward reward-2" data-reward="$10,000">$10K</div>
-            <div class="reward reward-3" data-reward="$500,000">$50K</div>
-            <!-- Add more rewards as needed -->
-
-            <!-- Pointer and lines -->
-            <div class="pointer"></div>
-            <div class="line"></div>
-
-            <!-- Triangle on top of the wheel -->
-            <div class="triangle"></div>
-        </div>
+    <div id="wheel-container">
+        <div id="wheel"></div>
     </div>
 
-    <!-- Popup for displaying rewards -->
-    <div class="popup" id="rewardPopup">
-        <span class="close-btn" onclick="closePopup()">&times;</span>
-        <p id="rewardText"></p>
-    </div>
+    <button id="spin-btn" onclick="spinWheel()">Spin the Wheel</button>
 
-    <script src="script.js"></script>
-
-    <script>
-        function spinRoulette() {
-            // Get the roulette wheel element
-            const rouletteWheel = document.querySelector('#rouletteWheel');
-
-            // Generate a random degree for the rotation
-            const randomDegree = Math.floor(Math.random() * 360) + 360 * 5; // Spin multiple times
-
-            // Apply the rotation to the wheel
-            rouletteWheel.style.transform = `rotate(${randomDegree}deg)`;
-
-            // Calculate and set the position of the pointer
-            const pointer = document.querySelector('.pointer');
-            const line = document.querySelector('.line');
-            const rotation = randomDegree % 360; // Normalize the rotation value
-            const pointerPosition = (rotation / 360) * 100;
-
-            pointer.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
-            line.style.left = `${pointerPosition}%`;
-
-            // Check the reward based on the rotation after the spin completes
-            setTimeout(() => checkReward(rotation), 3000);
-        }
-
-        function checkReward(rotation) {
-            // Check which reward corresponds to the rotation
-            let reward = '';
-            if (rotation >= 0 && rotation < 120) {
-                reward = 'Jackpot';
-            } else if (rotation >= 120 && rotation < 240) {
-                reward = '$10,000';
-            } else {
-                reward = '$50,000';
-            }
-
-            // Display the popup with the reward
-            displayPopup(reward);
-        }
-
-        function displayPopup(reward) {
-            // Show the popup with the reward text
-            const popup = document.getElementById('rewardPopup');
-            const rewardText = document.getElementById('rewardText');
-            rewardText.textContent = `Congratulations! You won: ${reward}`;
-            popup.style.display = 'block';
-        }
-
-        function closePopup() {
-            // Close the popup
-            const popup = document.getElementById('rewardPopup');
-            popup.style.display = 'none';
-        }
-    </script>
+    <script src="roulette.js"></script>
 
 </body>
 </html>
