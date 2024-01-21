@@ -13,11 +13,10 @@ function spinWheel() {
     if (!spinning) {
         spinning = true;
         const wheel = document.getElementById('wheel');
-        const randomDegree = Math.floor(Math.random() * 360) + 360 * 5;
         
-        // Add additional spins for a more visually appealing effect
-        const totalSpins = 5;
-        const totalRotation = randomDegree + 360 * totalSpins;
+        // Calculate a random rotation between 5 and 10 spins
+        const randomSpins = Math.floor(Math.random() * 6) + 5;
+        const totalRotation = 360 * randomSpins;
 
         wheel.style.transition = 'transform 3s ease-out';
         wheel.style.transform = `rotate(${totalRotation}deg)`;
@@ -27,7 +26,7 @@ function spinWheel() {
             spinning = false;
             wheel.style.transition = ''; // Reset transition for future spins
             alert(`Congratulations! You won: ${getRandomReward()}`);
-        }, 3000 * totalSpins);
+        }, 3000 * randomSpins);
     }
 }
 
