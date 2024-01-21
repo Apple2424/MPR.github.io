@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MPR Cooperation - Roulette</title>
     <style>
-        /* Paste the styles from styles.css here */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -20,17 +19,39 @@
         h1 {
             text-align: center;
         }
-        
-        /* Additional styles as needed for roulette.html */
+
+        /* Styling for the roulette wheel */
+        .roulette-wheel {
+            width: 200px;
+            height: 200px;
+            background-color: #f00; /* Placeholder color */
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 3s ease-in-out;
+        }
     </style>
 </head>
 <body>
 
     <h1>This is the Roulette Page</h1>
 
-    <!-- Add your roulette content or elements here -->
+    <!-- Roulette wheel with spin on click -->
+    <div class="roulette-wheel" onclick="spinRoulette()"></div>
 
     <script src="script.js"></script>
+
+    <script>
+        function spinRoulette() {
+            // Get the roulette wheel element
+            const rouletteWheel = document.querySelector('.roulette-wheel');
+
+            // Generate a random degree for the rotation
+            const randomDegree = Math.floor(Math.random() * 360) + 360 * 5; // Spin multiple times
+
+            // Apply the rotation to the wheel
+            rouletteWheel.style.transform = `rotate(${randomDegree}deg)`;
+        }
+    </script>
 
 </body>
 </html>
