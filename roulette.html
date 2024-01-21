@@ -35,6 +35,7 @@
             border-radius: 50%;
             cursor: pointer;
             transition: transform 3s ease-in-out;
+            position: relative;
         }
 
         /* Styling for rewards on the wheel */
@@ -50,6 +51,27 @@
         .reward-2 { top: 45%; left: 80%; } /* Adjust position as needed */
         .reward-3 { top: 80%; left: 45%; } /* Adjust position as needed */
         /* Add more rewards and adjust positions as needed */
+
+        /* Styling for the pointer and lines */
+        .pointer {
+            position: absolute;
+            width: 4px;
+            height: 30px;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: #fff;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
@@ -65,6 +87,10 @@
             <div class="reward reward-2"></div>
             <div class="reward reward-3"></div>
             <!-- Add more rewards as needed -->
+
+            <!-- Pointer and lines -->
+            <div class="pointer"></div>
+            <div class="line"></div>
         </div>
     </div>
 
@@ -80,6 +106,15 @@
 
             // Apply the rotation to the wheel
             rouletteWheel.style.transform = `rotate(${randomDegree}deg)`;
+
+            // Calculate and set the position of the pointer
+            const pointer = document.querySelector('.pointer');
+            const line = document.querySelector('.line');
+            const rotation = randomDegree % 360; // Normalize the rotation value
+            const pointerPosition = (rotation / 360) * 100;
+
+            pointer.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+            line.style.left = `${pointerPosition}%`;
         }
     </script>
 
