@@ -26,11 +26,9 @@ body {
 
 .rounded-box {
     --animation-duration: 5s; /* Set the default animation duration */
-    width: 100vw; /* Stretch each box to fill the viewport width */
-    height: 100px;
+    width: 60px; /* Set a fixed width for each box */
+    height: 60px;
     margin-right: 10px; /* Spacing between images */
-    position: relative;
-    animation: moveLeft var(--animation-duration) linear infinite; /* Animation to move boxes left */
     border: 2px solid #fff; /* White border */
     box-sizing: border-box; /* Include border in the box size */
 }
