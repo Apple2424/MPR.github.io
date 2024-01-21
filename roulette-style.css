@@ -35,12 +35,12 @@ body {
     object-fit: contain; /* Maintain aspect ratio and fit within the box */
 }
 
+/* Calculate the multiplier dynamically based on the number of boxes */
 @keyframes moveLeft {
     from {
         transform: translateX(0); /* Start from the left edge */
     }
     to {
-        transform: translateX(calc(-100% * 6)); /* Move to the left edge (adjust the multiplier based on the number of boxes) */
+        transform: translateX(calc(-100% * var(--box-count))); /* Move to the left edge */
     }
 }
-
