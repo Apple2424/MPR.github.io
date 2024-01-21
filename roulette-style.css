@@ -35,9 +35,10 @@ body {
 
 @keyframes moveLeft {
     from {
-        transform: translateX(-100%); /* Start from the left edge */
+        transform: translateX(-100vw); /* Start from the left edge */
     }
     to {
-        transform: translateX(100%); /* End at the right edge */
+        transform: translateX(100vw); /* End at the right edge */
     }
 }
+
