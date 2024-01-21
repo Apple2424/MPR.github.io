@@ -93,6 +93,27 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
+        /* Styling for the popup */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        /* Styling for the close button in the popup */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -102,11 +123,11 @@
     <!-- Roulette wheel container -->
     <div class="roulette-container" onclick="spinRoulette()">
         <!-- Roulette wheel with spin on click -->
-        <div class="roulette-wheel">
+        <div class="roulette-wheel" id="rouletteWheel">
             <!-- Rewards on the wheel -->
-            <div class="reward reward-1">Jackpot</div>
-            <div class="reward reward-2">$10,000</div>
-            <div class="reward reward-3">$50,000</div>
+            <div class="reward reward-1" data-reward="Jackpot">J</div>
+            <div class="reward reward-2" data-reward="$10,000">$10K</div>
+            <div class="reward reward-3" data-reward="$50,000">$50K</div>
             <!-- Add more rewards as needed -->
 
             <!-- Pointer and lines -->
@@ -118,12 +139,18 @@
         </div>
     </div>
 
+    <!-- Popup for displaying rewards -->
+    <div class="popup" id="rewardPopup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <p id="rewardText"></p>
+    </div>
+
     <script src="script.js"></script>
 
     <script>
         function spinRoulette() {
             // Get the roulette wheel element
-            const rouletteWheel = document.querySelector('.roulette-wheel');
+            const rouletteWheel = document.querySelector('#rouletteWheel');
 
             // Generate a random degree for the rotation
             const randomDegree = Math.floor(Math.random() * 360) + 360 * 5; // Spin multiple times
@@ -139,6 +166,38 @@
 
             pointer.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
             line.style.left = `${pointerPosition}%`;
+
+            // Check the reward based on the rotation after the spin completes
+            setTimeout(() => checkReward(rotation), 3000);
+        }
+
+        function checkReward(rotation) {
+            // Check which reward corresponds to the rotation
+            let reward = '';
+            if (rotation >= 0 && rotation < 120) {
+                reward = 'Jackpot';
+            } else if (rotation >= 120 && rotation < 240) {
+                reward = '$10,000';
+            } else {
+                reward = '$50,000';
+            }
+
+            // Display the popup with the reward
+            displayPopup(reward);
+        }
+
+        function displayPopup(reward) {
+            // Show the popup with the reward text
+            const popup = document.getElementById('rewardPopup');
+            const rewardText = document.getElementById('rewardText');
+            rewardText.textContent = `Congratulations! You won: ${reward}`;
+            popup.style.display = 'block';
+        }
+
+        function closePopup() {
+            // Close the popup
+            const popup = document.getElementById('rewardPopup');
+            popup.style.display = 'none';
         }
     </script>
 
