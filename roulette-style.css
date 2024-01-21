@@ -19,12 +19,12 @@ body {
 }
 
 .rounded-box {
-    width: 80px;
+    --animation-duration: 5s; /* Set the default animation duration */
+    width: 100vw; /* Stretch each box to fill the viewport width */
     height: 100px;
-    overflow: hidden;
     margin-right: 10px; /* Spacing between images */
     position: relative;
-    animation: moveLeft 5s linear infinite; /* Animation to move boxes left */
+    animation: moveLeft var(--animation-duration) linear infinite; /* Animation to move boxes left */
     border: 2px solid #fff; /* White border */
     box-sizing: border-box; /* Include border in the box size */
 }
