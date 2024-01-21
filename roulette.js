@@ -1,5 +1,13 @@
 // roulette.js
 
+// Define an array of rewards
+const rewards = [
+    'Jackpot',
+    '$10,000',
+    '$100,000',
+    // Add more rewards as needed
+];
+
 // Function to spin the wheel
 function spinWheel() {
     // Get the wheel element by its ID
@@ -16,6 +24,20 @@ function spinWheel() {
     // Allow spinning animation to finish before resetting transition
     setTimeout(() => {
         wheel.style.transition = '';
-        alert('You won something!'); // Replace this with your reward logic
+        displayReward(totalRotation);
     }, 3000 * randomSpins);
+}
+
+// Function to display the reward based on the wheel's rotation
+function displayReward(rotation) {
+    // Calculate the normalized rotation
+    const normalizedRotation = (rotation % 360 + 360) % 360;
+
+    // Calculate the reward index based on the normalized rotation
+    const rewardIndex = Math.floor((normalizedRotation / 360) * rewards.length);
+
+    // Get the reward from the array
+    const reward = rewards[rewardIndex];
+
+    alert(`Congratulations! You won: ${reward}`);
 }
