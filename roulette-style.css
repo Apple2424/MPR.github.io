@@ -42,9 +42,9 @@ body {
 /* Calculate the multiplier dynamically based on the number of boxes */
 @keyframes moveLeft {
     from {
-        transform: translateX(0); /* Start from the left edge */
+        transform: translateX(100vw); /* Start from the right edge of the viewport */
     }
     to {
-        transform: translateX(calc(-100% * var(--box-count))); /* Move to the left edge */
+        transform: translateX(-100%); /* Move to the left edge */
     }
 }
