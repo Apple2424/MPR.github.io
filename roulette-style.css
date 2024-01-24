@@ -1,26 +1,13 @@
+/* roulette-style.css */
+
+/* Styles specific to the roulette.html page */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    background: linear-gradient(to bottom, #3498db, #000);
-    color: #fff;
     margin: 0; /* Reset body margin */
     overflow: hidden; /* Hide overflow to prevent horizontal scrollbar */
 }
 
-.image-line {
-    display: flex;
-    margin-top: 20px;
-    overflow-x: hidden; /* Hide overflowing content (images) */
-}
-
 .rounded-box-container {
     display: flex;
-    flex-direction: row; /* Display boxes horizontally */
     animation: moveLeft var(--animation-duration) linear infinite; /* Animation to move boxes left */
 }
 
@@ -45,6 +32,6 @@ body {
         transform: translateX(100vw); /* Start from the right edge of the viewport */
     }
     to {
-        transform: translateX(-100%); /* Move to the left edge */
+        transform: translateX(calc(-70px * var(--box-count))); /* Adjust the distance based on box size and count */
     }
 }
